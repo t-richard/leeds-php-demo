@@ -14,7 +14,8 @@ provider:
         APP_ENV: prod
 
 plugins:
-    - ./vendor/bref/bref
+  - ./vendor/bref/bref
+  - serverless-lift
 
 functions:
     # This function runs the Symfony website/API
@@ -32,6 +33,15 @@ functions:
         layers:
             - ${bref:layer.php-80} # PHP
             - ${bref:layer.console} # The "console" layer
+
+constructs:
+    website:
+        type: server-side-website
+        assets:
+            '/build/*': public/build
+            '/favicon.ico': public/favicon.ico
+            '/apple-touch-icon.png': public/apple-touch-icon.png
+            '/robots.txt': public/robots.txt
 
 package:
     patterns:
