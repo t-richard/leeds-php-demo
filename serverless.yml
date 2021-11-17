@@ -12,6 +12,7 @@ provider:
     environment:
         # Symfony environment variables
         APP_ENV: prod
+        DATABASE_URL: ${construct:database.databaseUrl}
 
 plugins:
   - ./vendor/bref/bref
@@ -42,6 +43,10 @@ constructs:
             '/favicon.ico': public/favicon.ico
             '/apple-touch-icon.png': public/apple-touch-icon.png
             '/robots.txt': public/robots.txt
+    database:
+        type: database/sql
+        engine: postgres
+        password: ${env:DB_PASSWORD}
 
 package:
     patterns:

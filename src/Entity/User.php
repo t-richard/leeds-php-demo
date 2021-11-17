@@ -35,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var int
      *
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
     private $id;

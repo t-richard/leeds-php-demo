@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  database:
+    image: postgres:13-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=leeds
+      - POSTGRES_USER=leeds
+      - POSTGRES_DB=leeds
+    volumes:
+      - postgres:/data
+volumes:
+  postgres: ~
