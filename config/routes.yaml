@@ -9,4 +9,5 @@ homepage:
         _locale: '%app_locales%'
     defaults:
         template: default/homepage.html.twig
+        sharedAge: 300
         _locale: '%locale%'
